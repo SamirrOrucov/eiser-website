@@ -1,0 +1,33 @@
+$main-color:#4a4a4a;
+$hover-color:#71cd14;
+.nav_top_container{
+    background-color: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container{
+        width: 1113px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        padding: 12px 0;
+        color: $main-color;
+        .contact{
+
+            display: flex;
+            gap: 10px;
+        }
+        .links{
+            display: flex;
+            gap: 10px;
+            a{
+                color:$main-color ;    
+                transition: 400ms;
+                &:hover{
+                    color: $hover-color;
+                }
+
+            }
+        }
+        }
+    }
