@@ -1,0 +1,19 @@
+#cards_container {
+  margin-top: 50px;
+
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  .text {
+    width: 60vw;
+    text-align: center;
+  }
+  .cards {
+    margin-top: 50px;
+
+    display: flex;
+    gap: 50px;
+    width: 60vw;
+    flex-wrap: wrap;
+  }
+}
