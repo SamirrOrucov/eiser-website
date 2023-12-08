@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./index.scss";
+import { BasketContext } from "../../../context/BasketContext";
 const NavMain = () => {
+  const { basket } = useContext(BasketContext);
   const [stickyNav, setStickyNav] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
@@ -61,8 +63,9 @@ const NavMain = () => {
               </div>
               BLOG
             </NavLink>
-            <NavLink to={"/pages"} className={"parent_shop"}>PAGES
-            <div className="hidden_shop">
+            <NavLink to={"/pages"} className={"parent_shop"}>
+              PAGES
+              <div className="hidden_shop">
                 <ul>
                   <Link>
                     <li>Shop Category</li>
@@ -77,7 +80,10 @@ const NavMain = () => {
           </div>
           <div className="icons">
             <i className="fa-regular fa-magnifying-glass"></i>
-            <Link to={"/basket"} style={{color:"inherit"}}><i className="fa-sharp fa-regular fa-cart-shopping fa-flip-horizontal"></i><sup>0</sup></Link>
+            <Link className="basket" to={"/basket"} style={{ color: "inherit" }}>
+              <i className="fa-sharp fa-regular fa-cart-shopping fa-flip-horizontal"></i>
+              <sup>{basket.length}</sup>
+            </Link>
             <i className="fa-sharp fa-regular fa-user-tie-hair"></i>
             <i className="fa-regular fa-heart"></i>
           </div>

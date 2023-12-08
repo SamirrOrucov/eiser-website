@@ -20,6 +20,7 @@ $hover-color: #71cd14;
 
   
     .lists {
+      z-index: 3;
       display: flex;
       gap: 40px;
       a {
@@ -62,6 +63,7 @@ $hover-color: #71cd14;
 
     }
     .icons {
+     
       display: flex;
       gap: 13px;
       i {

@@ -1,31 +1,30 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
+import { BasketContext } from "../../context/BasketContext";
+import "./index.scss";
+import BasketCard from "../BasketCard";
 function Basket() {
-    const  {basket,increaseCount,decreaseCount ,removeItem } = useContext(BasketContext);
-    return (
-      <div>
-        {basket.length ? (
-          <div className="container">
-            {basket.map((x) => (
-              <div className="card" key={x.id}>
-                <div className="name">{x.name}</div>
-                <div className="price">{x.unitPrice}</div>
-a
-                <button onClick={() => {increaseCount(x)}}>
-                  +
-                </button>
-                <div className="price">{x.count}</div>
-                <button onClick={() => {decreaseCount(x)}}>
-                  -
-                </button>
-                <button onClick={()=>removeItem(x)}>X</button>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <h1>Basket bosdur</h1>
-        )}
+  const { basket } = useContext(BasketContext);
+  return (
+    <>
+      <div id="cards_container">
+        <div className="cards">
+          {basket.length ? (
+            basket.map((item) => (
+              <BasketCard
+                key={item.id}
+                img={item.image}
+                name={item.title}
+                price={item.price}
+                count={item.count}
+              />
+            ))
+          ) : (
+            <h1>Basket is empty..</h1>
+          )}
+        </div>
       </div>
-    );
+    </>
+  );
 }
 
-export default Basket
+export default Basket;

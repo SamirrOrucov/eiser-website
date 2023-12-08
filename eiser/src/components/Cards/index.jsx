@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card";
 import "./index.scss";
-import { BasketContext } from "../../context/BasketContext";
 function Cards() {
-
   const [product, setProduct] = useState([]);
   async function getFetch() {
     const res = await fetch("https://fakestoreapi.com/products");
