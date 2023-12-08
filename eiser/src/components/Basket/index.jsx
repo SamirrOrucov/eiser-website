@@ -3,10 +3,14 @@ import { BasketContext } from "../../context/BasketContext";
 import "./index.scss";
 import BasketCard from "../BasketCard";
 function Basket() {
-  const { basket } = useContext(BasketContext);
+  const { basket,totalPrice } = useContext(BasketContext);
   return (
     <>
       <div id="cards_container">
+
+        
+          <p>total: {totalPrice().toFixed(2)}$</p>
+
         <div className="cards">
           {basket.length ? (
             basket.map((item) => (
@@ -16,6 +20,7 @@ function Basket() {
                 name={item.title}
                 price={item.price}
                 count={item.count}
+                x={item}
               />
             ))
           ) : (

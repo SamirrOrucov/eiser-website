@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
 import { BasketContext } from "../../context/BasketContext";
-function Card({ img, name, price, x }) {
-  const { addBasket } = useContext(BasketContext);
+function Card({ img, name, price, count,x }) {
+  
+  const { addBasket,incCount,decCount} = useContext(BasketContext);
   return (
     <div id="card_container">
       <div className="container">
@@ -19,13 +20,13 @@ function Card({ img, name, price, x }) {
           <span
             style={{ fontWeight: "lighter", textDecoration: "line-through" }}
           >
-            $100.00
+            $(100.00)
           </span>
         </div>
-        
-          <div className="hidden_links">
+        {/* ${show?"hide":""} */}
+          <div className={`hidden_links  `}>
             <div className="eye icn">
-              <Link to={"/detail:id"}>
+              <Link to={"/detail/"+x.id}>
                 <i className="fa-regular fa-eye"></i>
               </Link>
             </div>
@@ -38,6 +39,13 @@ function Card({ img, name, price, x }) {
               <i className="fa-sharp fa-regular fa-cart-shopping fa-flip-horizontal"></i>
             </div>
           </div>
+          {/* ${show?"show ":""} */}
+          {/* <div className={`incDec  `}>
+            <button  onClick={()=>incCount(x)}>+</button>
+            <p>count:{count}</p>
+            <button onClick={()=>decCount(x)}>-</button>
+
+        </div> */}
         </div>
       </div>
     </div>

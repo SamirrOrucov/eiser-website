@@ -62,4 +62,8 @@
       }
       .incDec{
         display: flex;
+justify-content: space-around;
+        button{
+          padding: 5px 20px;
+        }
       }

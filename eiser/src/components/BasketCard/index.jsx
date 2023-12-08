@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import "./index.scss";
-function BasketCard({ img, name, price,count }) {
+import { BasketContext } from "../../context/BasketContext";
+function BasketCard({ img, name, price,count ,x}) {
+  const { incCount,decCount,removeItem } = useContext(BasketContext);
+
   return (
     <div id="card_container">
       <div className="container">
@@ -11,21 +14,21 @@ function BasketCard({ img, name, price,count }) {
           <p className="name">{name}</p>
         <div className="pr">
         <p className="price">
-            <b>${price}</b>
+            <b>${(price*count).toFixed(2)}</b>
           </p>{" "}
           <span
             style={{ fontWeight: "lighter", textDecoration: "line-through" }}
           >
-            $100.00
+            ${100*count}
           </span>
         </div>
         <div className="incDec">
-            <button>+</button>
+            <button  onClick={()=>incCount(x)}>+</button>
             <p>count:{count}</p>
-            <button>-</button>
+            <button onClick={()=>decCount(x)}>-</button>
 
         </div>
-        <button>remove item</button>
+        <button onClick={()=>removeItem(x)}>remove item</button>
          
       </div>
     </div>

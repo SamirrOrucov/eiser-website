@@ -1,0 +1,44 @@
+#detail_container{
+
+width: 100vw;
+height: 70vh;
+display: flex;
+justify-content: center;
+align-items: center;
+.container{
+    
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    gap: 30px;
+display: flex;
+    width: 60%;
+    height: 70%;
+    padding: 30px;
+        .image{
+        width: 30%;
+        height: 100%;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .product_info{
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 50%;
+        .prDet{
+        display: flex;
+        justify-content: space-between;
+        
+        .price{
+            padding: 0;
+        
+        }
+
+        }
+        text-align: start;
+    }
+}
+}
